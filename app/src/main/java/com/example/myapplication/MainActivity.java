@@ -2,7 +2,11 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,5 +15,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageView img1 = findViewById(R.id.imageView);
+        ImageView img2 = findViewById(R.id.imageView2);
+        ImageView img3= findViewById(R.id.imageView3);
+
+        img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,Camera.class);
+                startActivity(i);
+                Log.e("Tag","img1");
+            }
+        });
+
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,Final.class);
+                startActivity(i);
+                Log.e("Tag","img2");
+
+            }
+        });
+
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,Camera.class);
+                startActivity(i);
+                Log.e("Tag","img3");
+
+            }
+        });
     }
 }
