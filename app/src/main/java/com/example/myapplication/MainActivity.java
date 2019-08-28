@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.myapplication.cameraCrop.MyScan;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this,Camera.class);
+                Intent i=new Intent(MainActivity.this,MyScan.class);
                 startActivity(i);
                 Log.e("Tag","img1");
             }
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this,Final.class);
+                Intent i=new Intent(MainActivity.this,MyScan.class);
                 startActivity(i);
                 Log.e("Tag","img2");
 
@@ -41,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this,Camera.class);
+                Intent i=new Intent(MainActivity.this, MyScan.class);
+                i.putExtra("face", IConfig.RECTO+"");
                 startActivity(i);
+                finish();
                 Log.e("Tag","img3");
 
             }

@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.IconCompat;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -8,21 +9,26 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.myapplication.cameraCrop.MyScan;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Final extends AppCompatActivity {
 
-    void sendSMS(String phoneNumber,String message)
+    /*void sendSMS(String phoneNumber,String message)
     {
         String SENT = "SMS_SENT";
         String DELIVERED = "SMS_DELIVERED";
@@ -83,12 +89,19 @@ public class Final extends AppCompatActivity {
 
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber, null, message, sentPI, deliveredPI);
-    }
+    }*/
+
+    private Bitmap image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
+
+        ImageView img_ope = findViewById(R.id.imageView4);
+        EditText number = findViewById(R.id.editText);
+
+
 
         List<String> spinnerArray =  new ArrayList<String>();
         spinnerArray.add("choisir le type de Recharge ");
@@ -106,6 +119,18 @@ public class Final extends AppCompatActivity {
         Button btnValider = findViewById(R.id.button4Valider);
         Button button5anuller = findViewById(R.id.button5anuller);
 
+        image = GlobalData.getDetectedBitmap();
+
+        if (image != null){
+            img_ope.setImageBitmap(image);
+        } else {
+            IConfig.log("test not valide");
+        }
+
+        if (IConfig.code != null){
+            number.setText(IConfig.code);
+        } else {
+        }
 
         btnValider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +143,13 @@ i try to send an sms from the app
                 smgr.sendTextMessage("555",null,"hello this is a message",null,null);
 
                 Log.e("sms","after send sms");*/
-               sendSMS("0644527525","hello this is a test message");
+              // sendSMS("0644527525","hello this is a test message");
+
+                Intent send = new Intent(Intent.ACTION_VIEW);
+                send.putExtra("address","555");
+                send.putExtra("sms_body", IConfig.code+"*2");
+                send.setType("vnd.android-dir/mms-sms");
+                startActivity(send);
 
 
 
@@ -136,6 +167,10 @@ i try to send an sms from the app
             public void onClick(View view) {
 
                 Log.e("Tag","btn anuller");
+                Intent i=new Intent(Final.this, MyScan.class);
+                i.putExtra("face", IConfig.RECTO+"");
+                startActivity(i);
+                finish();
 
             }
         });
