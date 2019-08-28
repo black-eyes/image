@@ -121,7 +121,7 @@ i try to send an sms from the app
                sendSMS("0644527525","hello this is a test message");
 
 
-               //ui
+
 
             }
         });
