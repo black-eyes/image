@@ -120,6 +120,9 @@ i try to send an sms from the app
                 Log.e("sms","after send sms");*/
                sendSMS("0644527525","hello this is a test message");
 
+
+               //ui
+
             }
         });
 
