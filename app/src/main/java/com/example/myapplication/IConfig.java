@@ -127,6 +127,7 @@ public class IConfig {
 
 
     public static String code = "";
+    public static String oper = "";
 
     public static final double F_Dash = 0;
     public static final double F_Compte = 1;

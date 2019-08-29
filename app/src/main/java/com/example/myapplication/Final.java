@@ -92,6 +92,7 @@ public class Final extends AppCompatActivity {
     }*/
 
     private Bitmap image;
+    private List<String> spinnerArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,11 +103,40 @@ public class Final extends AppCompatActivity {
         EditText number = findViewById(R.id.editText);
 
 
+        if (IConfig.oper.equals("IAM")){
 
-        List<String> spinnerArray =  new ArrayList<String>();
-        spinnerArray.add("choisir le type de Recharge ");
-        spinnerArray.add("item1");
-        spinnerArray.add("item2");
+            spinnerArray =  new ArrayList<String>();
+            spinnerArray.add("choisir le type de Recharge ");
+            spinnerArray.add(" Normale");
+            spinnerArray.add(" SMS *1");
+            spinnerArray.add(" Tout Compris *2");
+            spinnerArray.add(" Internet *3");
+            spinnerArray.add(" MT Talk *6");
+            spinnerArray.add(" Premimum *9");
+
+        } else if (IConfig.oper.equals("ORANGE")){
+
+            spinnerArray =  new ArrayList<String>();
+            spinnerArray.add("choisir le type de Recharge ");
+            spinnerArray.add(" Normale");
+            spinnerArray.add(" SMS *1");
+            spinnerArray.add(" Tout Compris *2");
+            spinnerArray.add(" Internet *3");
+            spinnerArray.add(" MT Talk *6");
+            spinnerArray.add(" Premimum *9");
+
+        } else if (IConfig.oper.equals("INWI")){
+
+            spinnerArray =  new ArrayList<String>();
+            spinnerArray.add("choisir le type de Recharge ");
+            spinnerArray.add(" Normale");
+            spinnerArray.add(" SMS *1");
+            spinnerArray.add(" Tout Compris *2");
+            spinnerArray.add(" Internet *3");
+            spinnerArray.add(" MT Talk *6");
+            spinnerArray.add(" Premimum *9");
+
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
 

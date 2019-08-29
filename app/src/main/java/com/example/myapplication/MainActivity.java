@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.IconCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(MainActivity.this,MyScan.class);
+                i.putExtra("face", IConfig.RECTO+"");
                 startActivity(i);
                 Log.e("Tag","img1");
+                IConfig.oper = "IAM";
             }
         });
 
@@ -34,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(MainActivity.this,MyScan.class);
+                i.putExtra("face", IConfig.RECTO+"");
                 startActivity(i);
                 Log.e("Tag","img2");
+                IConfig.oper = "ORANGE";
 
             }
         });
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
                 Log.e("Tag","img3");
+                IConfig.oper = "INWI";
 
             }
         });
