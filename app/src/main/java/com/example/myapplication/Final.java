@@ -159,8 +159,7 @@ public class Final extends AppCompatActivity {
 
         if (IConfig.code != null){
             number.setText(IConfig.code);
-        } else
-            {
+        } else {
         }
 
         btnValider.setOnClickListener(new View.OnClickListener() {
