@@ -2,16 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
-    <uses-sdk
-        android:minSdkVersion="22"
-        android:targetSdkVersion="29" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+
+    <!-- Allows access to the flashlight -->
+    <permission android:name="android.permission.FLASHLIGHT"
+        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+        android:protectionLevel="normal"
+        android:label="@string/permlab_flashlight"
+        android:description="@string/permdesc_flashlight" />
+<!-- end flash permession-->
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
@@ -77,7 +83,17 @@
             android:multiprocess="true" />
 
 
+
+
+
+
     </application>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+
+
+
+
+
+
 
 </manifest>

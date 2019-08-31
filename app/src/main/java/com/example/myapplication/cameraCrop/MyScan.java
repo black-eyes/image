@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
+
+
+
+import android.hardware.Camera;
+
+
+
 
 
 /**
@@ -109,6 +118,31 @@ public class MyScan extends AppCompatActivity implements
 
         Intent intent_2 = getIntent();
         tag = Integer.parseInt(intent_2.getStringExtra("face"));
+
+
+
+        //turn on the flash
+
+        Button flash = findViewById(R.id.btn_flash);
+
+        flash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+
+
+                //context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
+                Camera cam = Camera.open();
+                Camera.Parameters p = cam.getParameters();
+                p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                cam.setParameters(p);
+                cam.startPreview();
+
+
+            }
+        });
 
     }
 

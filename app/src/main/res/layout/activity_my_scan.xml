@@ -51,4 +51,14 @@
         app:srcCompat="@drawable/ic_camera"
         app:useCompatPadding="true"
         tools:ignore="RelativeOverlap,VectorDrawableCompat" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_flash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="6dp"
+        app:srcCompat="@android:drawable/ic_menu_compass"
+        app:useCompatPadding="true"
+        tools:ignore="RelativeOverlap,VectorDrawableCompat" />
 </RelativeLayout>

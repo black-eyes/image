@@ -3,4 +3,9 @@
     <string name="camera_permission_confirmation">This app use the CameraView. In order to do that, it needs permission to access camera.</string>
     <string name="camera_permission_not_granted">Camera app cannot do anything without camera permission.</string>
     <string name="picture_taken">La photo est prise avec succès</string>
+
+    <!-- with ligth permession -->
+    <string name="permlab_flashlight">Flashlight permission</string>
+    <string name="permdesc_flashlight">Flashlight permission description</string>
+    <!-- end ligth permession-->
 </resources>
