@@ -61,16 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_above="@+id/take_picture_2"
 
-
-        android:layout_alignStart="@+id/idF"
-        android:layout_alignTop="@+id/idF"
-        android:layout_alignEnd="@+id/idF"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="191dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="421dp"
         android:text="Flash" />
 
 </RelativeLayout>
