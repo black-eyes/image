@@ -124,7 +124,7 @@ public class Final extends AppCompatActivity {
         } else if (IConfig.oper.equals("ORANGE")){
 
             //spinnerArray =  new ArrayList<String>();
-            items2 = new String[]{" Choisir le type de Recharge "," Normale"," SMS *1"," Tout Compris *2"," Internet *3"," MT Talk *6"," Premimum *9"};
+            items2 = new String[]{" Choisir le type de Recharge "," Normale"," Appels et SMS *1","Communauté Orange *2"," Internet *3","vers le national et l'international *4"," Reseaux sociaux *6"};
             /*spinnerArray.add(" Choisir le type de Recharge ");
             spinnerArray.add(" Normale");
             spinnerArray.add(" SMS *1");
@@ -228,6 +228,10 @@ i try to send an sms from the app
                     IConfig.log(ser+"llll *9");
                 }
 
+                if (IConfig.service.contains("*4")){
+                    ser = "*4";
+                    IConfig.log(ser+"llll *4");
+                }
                 /*Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
                 intent.setData(Uri.parse("tel:0707040613*2"));
                 startActivity(intent);*/
