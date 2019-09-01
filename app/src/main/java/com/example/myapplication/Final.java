@@ -147,6 +147,7 @@ public class Final extends AppCompatActivity {
             spinnerArray.add(" 1h ou 1Go 7j *2");
             spinnerArray.add(" 1 Go valable 3j *3");*/
 
+
         }
 
 
