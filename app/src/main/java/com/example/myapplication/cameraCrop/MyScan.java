@@ -366,20 +366,25 @@ public class MyScan extends AppCompatActivity implements
         if (!textRecognizer.isOperational()){
             Toast.makeText(getApplicationContext(), "test text ....", Toast.LENGTH_SHORT).show();
         } else {
-            Frame frame = new Frame.Builder().setBitmap(bitmap).build();
-            SparseArray<TextBlock> items = textRecognizer.detect(frame);
-            StringBuilder ab = new StringBuilder();
+            if (bitmap != null){
+               Frame frame = new Frame.Builder().setBitmap(bitmap).build();
+                SparseArray<TextBlock> items = textRecognizer.detect(frame);
+                StringBuilder ab = new StringBuilder();
 
-            for (int i = 0 ; i < items.size() ; i++){
+                for (int i = 0 ; i < items.size() ; i++){
 
-                TextBlock textBlock = items.valueAt(i);
-                ab.append(textBlock.getValue());
-                ab.append("\n");
+                    TextBlock textBlock = items.valueAt(i);
+                    ab.append(textBlock.getValue());
+                    ab.append("\n");
 
 
+                }
             }
 
-            IConfig.log(ab+"tttttttttttt");
+
+
+
+           // IConfig.log(ab+"tttttttttttt");
         }
 
     }
