@@ -124,7 +124,7 @@ public class Final extends AppCompatActivity {
         } else if (IConfig.oper.equals("ORANGE")){
 
             //spinnerArray =  new ArrayList<String>();
-            items2 = new String[]{" Choisir le type de Recharge "," Normale"," SMS *1"," Tout Compris *2"," Internet *3"," MT Talk *6"," Premimum *9"};
+            items2 = new String[]{" Choisir le type de Recharge "," Normale"," Appels et SMS *1","Communauté Orange *2"," Internet *3","vers le national et l'international *4"," Reseaux sociaux *6"};
             /*spinnerArray.add(" Choisir le type de Recharge ");
             spinnerArray.add(" Normale");
             spinnerArray.add(" SMS *1");
@@ -228,17 +228,46 @@ i try to send an sms from the app
                     IConfig.log(ser+"llll *9");
                 }
 
-                /*Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
-                intent.setData(Uri.parse("tel:0707040613*2"));
-                startActivity(intent);*/
+                if (IConfig.service.contains("*4")){
+                    ser = "*4";
+                    IConfig.log(ser+"llll *4");
+                }
 
-                //final String result = stripNonDigits(input);
 
-                Intent send = new Intent(Intent.ACTION_VIEW);
-                send.putExtra("address","555");
-                send.putExtra("sms_body", number.getText().toString()+ser);
-                send.setType("vnd.android-dir/mms-sms");
-                startActivity(send);
+
+
+
+                if(IConfig.oper == "ORANGE")
+                {
+                    /*
+                    Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
+                    intent.setData(Uri.parse("tel:0707040613*2"));
+                    startActivity(intent);
+                    */
+
+
+                    String phone = "555";
+
+                    String finalnumber = phone+number.getText().toString()+ser;
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", finalnumber, null));
+                    startActivity(intent);
+
+
+                }else
+                    {
+                     /*Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
+                        intent.setData(Uri.parse("tel:0707040613*2"));
+                        startActivity(intent);*/
+
+                        //final String result = stripNonDigits(input);
+
+                        Intent send = new Intent(Intent.ACTION_VIEW);
+                        send.putExtra("address","555");
+                        send.putExtra("sms_body", number.getText().toString()+ser);
+                        send.setType("vnd.android-dir/mms-sms");
+                        startActivity(send);
+
+                    }
 
 
 
