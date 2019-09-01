@@ -22,6 +22,7 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 while (prg.getProgress() < 100) {
                     prg.setProgress(prg.getProgress()+10);
+                    IConfig.log("gggggggggg");
                     // Update the progress bar and display the
                     //current value in the text view
 
