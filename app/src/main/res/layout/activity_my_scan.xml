@@ -33,14 +33,18 @@
         android:background="@android:color/black" />
 
     <FrameLayout
+        android:id="@+id/idF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignTop="@+id/camera"
         android:layout_alignParentStart="true"
+
+
         android:layout_alignParentBottom="true"
-        android:background="@drawable/mycadre1"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/mycadre1">
 
-
-        ></FrameLayout>
+    </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/take_picture_2"
@@ -52,13 +56,21 @@
         app:useCompatPadding="true"
         tools:ignore="RelativeOverlap,VectorDrawableCompat" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_flash"
+    <Switch
+        android:id="@+id/switch3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="6dp"
-        app:srcCompat="@android:drawable/ic_menu_compass"
-        app:useCompatPadding="true"
-        tools:ignore="RelativeOverlap,VectorDrawableCompat" />
+
+        android:layout_above="@+id/take_picture_2"
+
+
+        android:layout_alignStart="@+id/idF"
+        android:layout_alignTop="@+id/idF"
+        android:layout_alignEnd="@+id/idF"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="191dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="421dp"
+        android:text="Flash" />
+
 </RelativeLayout>

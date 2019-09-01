@@ -21,7 +21,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -51,14 +51,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 
-
-
-import android.hardware.Camera;
-
-
-
-
-
 /**
  * Created by YASSIR on 27/11/2018.
  */
@@ -86,10 +78,22 @@ public class MyScan extends AppCompatActivity implements
             switch (v.getId()) {
                 case R.id.take_picture_2:
                     if (mCameraView != null) {
-                        mCameraView.setFlash(CameraView.FLASH_OFF);
+
+                            Switch sw;
+                            sw = (Switch)findViewById(R.id.switch3);
+                            if(sw.isChecked())
+                            {
+                                mCameraView.setFlash(CameraView.FLASH_ON);
+                            }else
+                                {
+                                    mCameraView.setFlash(CameraView.FLASH_OFF);
+                                }
+
+
                         mCameraView.takePicture();
                     }
-                    break;
+
+
             }
         }
     };
@@ -121,28 +125,6 @@ public class MyScan extends AppCompatActivity implements
 
 
 
-        //turn on the flash
-
-        Button flash = findViewById(R.id.btn_flash);
-
-        flash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-
-
-
-                //context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-
-                Camera cam = Camera.open();
-                Camera.Parameters p = cam.getParameters();
-                p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                cam.setParameters(p);
-                cam.startPreview();
-
-
-            }
-        });
 
     }
 
