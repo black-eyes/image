@@ -43,7 +43,9 @@
         <activity android:name=".Camera"
                   android:screenOrientation="portrait"/>
         <activity android:name=".Splash"
-                  android:screenOrientation="portrait">
+                  android:screenOrientation="portrait"
+                    android:noHistory="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,6 +87,13 @@
 
     </application>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+
+
+    <!-- call permession -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- call permession -->
+
+
 
 
 

@@ -232,17 +232,42 @@ i try to send an sms from the app
                     ser = "*4";
                     IConfig.log(ser+"llll *4");
                 }
-                /*Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
-                intent.setData(Uri.parse("tel:0707040613*2"));
-                startActivity(intent);*/
 
-                //final String result = stripNonDigits(input);
 
-                Intent send = new Intent(Intent.ACTION_VIEW);
-                send.putExtra("address","555");
-                send.putExtra("sms_body", number.getText().toString()+ser);
-                send.setType("vnd.android-dir/mms-sms");
-                startActivity(send);
+
+
+
+                if(IConfig.oper == "ORANGE")
+                {
+                    /*
+                    Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
+                    intent.setData(Uri.parse("tel:0707040613*2"));
+                    startActivity(intent);
+                    */
+
+
+                    String phone = "555";
+
+                    String finalnumber = phone+number.getText().toString()+ser;
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", finalnumber, null));
+                    startActivity(intent);
+
+
+                }else
+                    {
+                     /*Intent intent = new Intent(Intent.ACTION_CALL);// or ACTION_DIAL
+                        intent.setData(Uri.parse("tel:0707040613*2"));
+                        startActivity(intent);*/
+
+                        //final String result = stripNonDigits(input);
+
+                        Intent send = new Intent(Intent.ACTION_VIEW);
+                        send.putExtra("address","555");
+                        send.putExtra("sms_body", number.getText().toString()+ser);
+                        send.setType("vnd.android-dir/mms-sms");
+                        startActivity(send);
+
+                    }
 
 
 
