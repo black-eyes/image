@@ -135,6 +135,7 @@ public class Final extends AppCompatActivity {
 
         } else if (IConfig.oper.equals("INWI")){
 
+
             //spinnerArray =  new ArrayList<String>();
             items2 = new String[]{" Choisir le type de Recharge "," Normale"," Réseaux sociaux 7j *6"," Voix+SMS illimites 3j *8"," 1h national 3j *1"
             ," 1h ou 1Go 7j *2"," 1 Go valable 3j *3"};
