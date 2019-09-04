@@ -83,7 +83,7 @@ public class MyScan extends AppCompatActivity implements
                             sw = (Switch)findViewById(R.id.switch3);
                             if(sw.isChecked())
                             {
-                                mCameraView.setFlash(CameraView.FLASH_ON);
+                                mCameraView.setFlash(CameraView.FLASH_TORCH);
                             }else
                                 {
                                     mCameraView.setFlash(CameraView.FLASH_OFF);

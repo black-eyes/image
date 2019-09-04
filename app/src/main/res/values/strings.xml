@@ -7,5 +7,7 @@
     <!-- with ligth permession -->
     <string name="permlab_flashlight">Flashlight permission</string>
     <string name="permdesc_flashlight">Flashlight permission description</string>
+    <string name="ID_App">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ID_Banner_One">ca-app-pub-3940256099942544/6300978111</string>
     <!-- end ligth permession-->
 </resources>

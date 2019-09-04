@@ -10,8 +10,15 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.myapplication.cameraCrop.MyScan;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 public class MainActivity extends AppCompatActivity {
+
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         ImageView img1 = findViewById(R.id.imageView);
         ImageView img2 = findViewById(R.id.imageView2);
         ImageView img3= findViewById(R.id.imageView3);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override

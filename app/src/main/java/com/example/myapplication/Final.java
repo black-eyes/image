@@ -24,6 +24,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.myapplication.cameraCrop.MyScan;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +104,8 @@ public class Final extends AppCompatActivity {
     private Spinner sItems;
     private String[] items2;
     private String str = "";
+    private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +113,24 @@ public class Final extends AppCompatActivity {
 
         ImageView img_ope = findViewById(R.id.imageView4);
         final EditText number = findViewById(R.id.editText);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+        });
 
         spinnerArray =  new ArrayList<String>();
 
@@ -165,6 +190,7 @@ public class Final extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 IConfig.service = sItems.getSelectedItem().toString();
                 IConfig.log(IConfig.service+" yyyyy");
+                showInterstitalAd();
             }
 
             @Override
@@ -292,5 +318,13 @@ i try to send an sms from the app
 
             }
         });
+    }
+
+    public void showInterstitalAd(){
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
     }
 }
