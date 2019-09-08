@@ -42,7 +42,7 @@
 
         android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
-        android:background="@drawable/mycadre1">
+        android:background="@drawable/camera_masque">
 
     </FrameLayout>
 
@@ -50,8 +50,9 @@
         android:id="@+id/take_picture_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:rippleColor="@color/browser_actions_bg_grey"
         app:srcCompat="@drawable/ic_camera"
         app:useCompatPadding="true"
         tools:ignore="RelativeOverlap,VectorDrawableCompat" />
@@ -66,6 +67,7 @@
 
         android:layout_marginTop="20dp"
         android:button="@drawable/ic_flash_on_black_24dp"
-        android:text="Flash" />
+        android:text="Flash  "
+        android:textColor="#FFF"/>
 
 </RelativeLayout>

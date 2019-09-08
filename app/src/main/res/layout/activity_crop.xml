@@ -13,14 +13,15 @@
         android:id="@+id/btn_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_crop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
+        app:rippleColor="@color/browser_actions_bg_grey"
         app:srcCompat="@drawable/ic_check_black_24dp"
         app:useCompatPadding="true"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="RelativeOverlap,VectorDrawableCompat" />
 
     <me.pqpo.smartcropperlib.view.CropImageView
         android:id="@+id/iv_crop"
